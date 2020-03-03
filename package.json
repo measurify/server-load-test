@@ -1,0 +1,16 @@
+{
+  "name": "atmosphere-api-load-test",
+  "version": "0.0.1",
+  "description": "A load test for Atmophere API",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Riccardo Berta",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "cli-progress": "^3.6.0",
+    "dotenv": "^8.2.0"
+  }
+}
