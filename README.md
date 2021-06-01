@@ -1,22 +1,24 @@
-# Atmosphere Cloud API Load testing tool
+# Measurify Cloud API Load testing tool
 
-This is a tool to make load test of Atmophere Cloud API.
+This is a tool to make load test of Measurify Cloud API.
 
-DON'T USE AGAINST A PRODUCTION API! IT DELETE ALL DATABASE CONTENTS!!!
+DON'T USE AGAINST A PRODUCTION TENANT! IT DELETE ALL DATABASE CONTENTS!!!
 
-It creates an envirnonment (thing, feature, device) and then load the API with a number of measurements or donwload measurements from API. The selection of the run mode (upload/donwload) cna be selected from the command line:
+It creates a tenant and some static data (thing, feature, device) and then load the API with a number of measurements. The selection of the run mode (standard HTTP post requests or streaming trhough a web socket connection) can be selected from the command line:
 
-    node run.js [download/upload]
+    node run.js [post/stream]
 
-The upload/download is done in using a batch approach, each POST/GET contains a number of measurements.
+The upload is done using a batch approach, each request (post) or each message (web socket) contains a number of measurements.
 
-Yoy can customize the behaviour of the tool by editing varibales.env file:
+You can customize the behaviour of the tool by editing varibales.env file:
 
-    URL=https://localhost:443
-    VERSION=v1
-    USERNAME=admin
-    PASSWORD=admin
-    SIZE=1000
-    BATCH=100
+   URL=https://localhost:443
+   VERSION=v1
+   TENANT=measurify-load-test
+   API_TOKEN=ifhidhfudshuf8
+   USERNAME=admin
+   PASSWORD=admin
+   SIZES=[1000]
+   BATCHES=[1, 10, 100]
 
-URL is the base URL of the API; VERSION is the API version; USERNAME and PASSWORD are credentials of a valid admin user for the API; SIZE is the number of measurements uploaded/downloaded from API during the load test; BATCH the number of measurements for each POST/GET
+URL is the base URL of the API; VERSION is the API version; TENENAT is the tenant used for the test (if it doesn't exist, it will be created); API_TOKEN is the Measurify token to create tenants; USERNAME and PASSWORD are credentials of the admin user of the tenant; SIZES is an array of numbers of measurements uploaded from API during the load test; BATCHES is an array of numbers for each batch.
